@@ -38,6 +38,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { RegisterGuard } from './guards/register.guard';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 import * as firebase from 'firebase';
+import { UploadDetailComponent } from './upload/upload-detail/upload-detail.component';
+import { UploadsListComponent } from './upload/uploads-list/uploads-list.component';
 
 // Create Routes
 const appRoutes: Routes = [
@@ -68,6 +70,8 @@ AngularFireModule.initializeApp(environment.firebase)
     SettingsComponent,
     PageNotFoundComponent,
     FormUploadComponent,
+    UploadDetailComponent,
+    UploadsListComponent
   ],
   imports: [
     BrowserModule,

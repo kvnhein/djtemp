@@ -9,8 +9,11 @@ import {FileUpload} from '../fileupload';
 })
 export class UploadDetailComponent  {
   @Input() upload: FileUpload;
+  
   constructor(private upSvc: UploadFileService) { }
-
-
+  
+    deleteUpload() {
+      this.upSvc.deleteUpload(this.upload);
+    }
 
 }

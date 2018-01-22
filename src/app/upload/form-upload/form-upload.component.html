@@ -1,26 +1,36 @@
-<div *ngIf="currentFileUpload" class="progress" style="width:400px">
-	<div class="progress-bar progress-bar-info progress-bar-striped"
-		role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
-		aria-valuemin="0" aria-valuemax="100"
-		[ngStyle]="{width:progress.percentage+'%'}">
-		{{progress.percentage}}%</div>
+<div *ngIf="currentUpload">
+<progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
+Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
 </div>
 
-<label class="btn btn-default"> <input type="file"
-	(change)="selectFile($event)">
+
+<div class="box">
+<h3>Single File Uploadsss</h3>
+
+<label>
+  <input type="file" class="button" (change)="detectFiles($event)">
 </label>
+<button class="button is-primary"
+  [disabled]="!selectedFiles"
+  (click)="uploadSingle()">
+  Upload Single
+</button>
 
-<button class="btn btn-success" [disabled]="!selectedFiles"
-  (click)="upload()">Upload butt</button>
-  
+<hr>
 
-  <div *ngFor="let upload of uploads | async">
-    <img src="{{upload.url}}" alt="">
-    <img [src]="" alt="">
+<h3>Multiple File Upload</h3>
 
-  </div>
-  
-  <!-- <div *ngFor="let upload of uploads | async">
-      <upload-detail [upload]='upload'></upload-detail>
-    </div>
-     -->
+<label>
+  <input type="file" class="button" (change)="detectFiles($event)" multiple>
+</label>
+<button class="button is-primary"
+  [disabled]="!selectedFiles"
+  (click)="uploadMulti()">
+  Upload Multipless
+</button>
+</div>
+
+
+
+
+

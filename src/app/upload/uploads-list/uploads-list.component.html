@@ -1,0 +1,13 @@
+
+<h3>File Uploads</h3>
+<div class="row">
+<div *ngFor="let upload of uploads | async" class="col-md-6">
+  
+  <app-upload-detail [upload]='upload'></app-upload-detail>
+
+</div>
+</div>
+
+
+<hr>
+
