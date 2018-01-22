@@ -1,0 +1,108 @@
+<div class="container">
+<div class="row mb-5">
+  <div class="col-md-6">
+    <a routerLink="/" href="" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to Home
+    </a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+
+<div class="col-md-6">
+<div class="card">
+  <div class="card-header">
+    Add Event
+  </div>
+  <div class="card-body">
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <label for="date">Event Date</label>
+        <input 
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid':date.errors?.required && date.touched || date.errors?.minlength}"
+          [(ngModel)]="event.date"
+          name="date"
+          #date = "ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="date.errors?.required && date.touched" class="invalid-feedback">
+          Date is required
+        </div>
+        <div *ngIf="date.errors?.minlength && date.touched" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="venueName">Venue Name</label>
+        <input 
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid':venueName.errors?.required && venueName.touched || venueName.errors?.minlength}"
+          [(ngModel)]="event.venueName"
+          name="venueName"
+          #venueName = "ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="venueName.errors?.required && venueName.touched" class="invalid-feedback">
+          Venue Name is required
+        </div>
+        <div *ngIf="venueName.errors?.minlength && venueName.touched" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="venueAddress">Venue Address</label>
+        <input 
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid':venueAddress.errors?.required && venueAddress.touched || venueAddress.errors?.minlength}"
+          [(ngModel)]="event.venueAddress"
+          name="venueAddress"
+          #venueAddress = "ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="venueAddress.errors?.required && venueAddress.touched" class="invalid-feedback">
+          Venue Address is required
+        </div>
+        <div *ngIf="venueAddress.errors?.minlength && venueAddress.touched" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+    
+
+      <div class="form-group">
+        <label for="ticketsLink">Ticket Link</label>
+        <input 
+          type="text"
+          class="form-control"
+          [ngClass]="{'is-invalid':ticketsLink.errors?.required && ticketsLink.touched || ticketsLink.errors?.minlength}"
+          [(ngModel)]="event.ticketsLink"
+          name="ticketsLink"
+          #ticketsLink = "ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="ticketsLink.errors?.required && ticketsLink.touched" class="invalid-feedback">
+          Ticket Link is required
+        </div>
+        <div *ngIf="ticketsLink.errors?.minlength && ticketsLink.touched" class="invalid-feedback">
+          Ticket Link is not a valid number
+        </div>
+      </div>
+
+    
+
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>
+</div>
+</div>

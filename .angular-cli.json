@@ -19,9 +19,17 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/videogular2/fonts/videogular.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/popper.js/dist/umd/popper.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/scrollreveal/dist/scrollreveal.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

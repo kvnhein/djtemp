@@ -1,0 +1,38 @@
+
+<div class="container">
+    <div class="row mb-5">
+  <div class="col-md-6">
+    <a routerLink="/" href="#" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
+    </a>
+  </div>
+  
+</div>
+
+<hr>
+<div *ngIf="event" class="card">
+  <h3 class="card-header">{{event.date}}</h3>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12 d-none">
+        <h4>Event ID: {{id}}</h4>
+      </div>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item">Venue Name: {{event.venueName}}</li>
+      <li class="list-group-item">Event Adress: {{event.venueAddress}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-md-12 mt-3">
+    <div class="btn-group pull-right" *ngIf="isLoggedIn">
+      <a [routerLink]="['/edit-event/'+id]" class="btn btn-dark">Edit</a>
+      <button class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
+    </div>
+  </div>
+</div>
+
+</div>

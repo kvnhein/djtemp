@@ -1,0 +1,244 @@
+<div class="jumbotron jumbotron-fluid">
+  <!--  <video autoplay muted loop id="myVideo">
+   <source src="http://kevinheinportfolio.com/videos/Video.mp4" type="video/mp4">
+   Your browser does not support HTML5 video.
+ </video> -->
+ 
+ 
+ <div class="video-responsive">
+       <!-- <video class="video d-none d-sm-block" muted="muted" loop="loop" autoplay="autoplay">
+         <source src="http://kevinheinportfolio.com/videos/Video.mp4" type="video/mp4">
+         Your browser does not support HTML5 video.
+       </video> -->
+ 
+       <!-- <video class="video" muted="muted" loop="loop" autoplay="autoplay">
+         <source src="assets/videos/djgb.mp4" type="video/mp4">
+         Your browser does not support HTML5 video.
+       </video>
+
+       <canvas class="canvas"></canvas> -->
+
+
+      
+          <video [vgMedia]="mastertopper" #mastertopper [vgMaster]="true" id="mastertopper" preload="auto" autoplay muted loop>
+              <source src="assets/videos/djgb.mp4" type="video/mp4">
+          </video>
+      
+          
+      <!-- <canvas class="canvas"></canvas> -->
+       
+     </div>
+ 
+   <!-- <script src="canvas-video-player.js"></script> -->
+ 
+ 
+ 
+ 
+ 
+   <div class="top-holder">
+     <img src="assets/img/logoNew.png" ngsReveal/>
+     <p class="lead" ngsReveal>With residencies at top-notch San Diego, California nightclubs including Fluxx, Parq, Sevilla Nightclub, Sidebar, F6ix, and AD, DJ Dynamiq is steadily climbing the rungs of his industry. </p>
+      <div ngsReveal>
+        <button type="button" [ngx-scroll-to]="'#upcoming-shows-sec'" class="btn btn-primary" id="upcoming-shows" style="margin-right: 5px;">Upcoming Shows</button>
+        <button type="button" [ngx-scroll-to]="'#videos-sec'" class="btn btn-primary" id="videos">Videos</button>
+      </div>
+    </div>
+</div>
+
+
+ 
+<div class="videos" id="videos-sec">
+ <div class="container">
+     <div class="row">
+       <div class="col-sm-12 title-head">
+       <h5>VIDEOS</h5>
+     </div>
+     </div>
+   <div class="row">
+     <div class="col-sm-12 col-md-6" ngsReveal>
+       <img src="assets/img/vid1.jpg" class="d-none"/>
+      
+    <!-- <vg-player>
+          <vg-overlay-play ></vg-overlay-play>
+          <vg-buffering></vg-buffering>
+
+          <vg-controls>
+              <vg-play-pause></vg-play-pause>
+      
+              <vg-scrub-bar>
+                  <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                  <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+              </vg-scrub-bar>
+      
+              <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+      
+              <vg-mute></vg-mute>
+      
+              <vg-fullscreen></vg-fullscreen>
+          </vg-controls>
+      
+          <video [vgMedia]="master" #master [vgMaster]="true" id="masterVideo" preload="auto">
+              <source src="assets/videos/video_1.mp4" type="video/mp4">
+          </video>
+      
+          
+      </vg-player> -->
+      <div class="intrinsic-container intrinsic-container-16x9">
+          <iframe src="https://www.youtube.com/embed/VQ7FIrlfTPQ" frameborder="0" allowfullscreen>></iframe>
+        </div>
+     </div>
+     <div class="col-sm-12 col-md-6" ngsReveal>
+
+        <div class="intrinsic-container intrinsic-container-16x9">
+            <iframe src="https://www.youtube.com/embed/9D7nfn50kko" frameborder="0" allowfullscreen>></iframe>
+          </div>
+
+      </div>
+     <div class="col-sm-12 col-md-6" ngsReveal>
+
+        <div class="intrinsic-container intrinsic-container-16x9">
+            <iframe src="https://www.youtube.com/embed/9LRke8Hq-hM" frameborder="0" allowfullscreen>></iframe>
+          </div>
+
+      </div>
+     <div class="col-sm-12 col-md-6" ngsReveal>
+
+        <div class="intrinsic-container intrinsic-container-16x9">
+            <iframe src="https://www.youtube.com/embed/nZDNxHG1iN0" frameborder="0" allowfullscreen>></iframe>
+          </div>
+
+      </div>
+   </div>
+ </div>
+ </div>
+
+
+ 
+<div class="container-fluid upcoming-shows" id="upcoming-shows-sec">
+ 
+   <div class="row">
+       <div class="col-6 title-head">
+       <h5>UPCOMING EVENTS</h5>
+     </div>
+
+     <div class="col-6">
+        <a routerLink="/add-event" href="#" class="btn btn-success btn-block" *ngIf="isLoggedIn" style="margin-top: 38px;
+        width: 45px;
+        padding: 11px 15px;
+        height: 45px;
+        min-width: auto;
+        float: right;
+        font-size: 18px;
+        border-color: #858e95;
+        background-color: #858e95;">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          </a>
+     </div>
+   </div>
+
+  
+
+   <!-- <table *ngIf="events?.length > 0;else noEvents" class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Date</th>
+        <th>Venue Name</th>
+        <th>Venue Location</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{event.venueName}}</td>
+        <td>{{event.date}}</td>
+        <td>{{event.venueAddress}}</td>
+        <td><a [routerLink]="['/event/'+event.key]" href="" class="btn btn-secondary btn-sm">Details</a></td>
+      </tr>
+    </tbody>
+   </table>
+
+   <ng-template #noEvents>
+    <hr>
+    <h5>There are no Events coming up</h5>
+   </ng-template> -->
+   
+   <ul *ngIf="events?.length > 0;else noEvents" class="list-group">
+   <li *ngFor="let event of events" class="listitems list-group-item d-flex justify-content-between align-items-center" ngsReveal>
+     <div class="top-holder">
+       <span class="date">{{event.date}}</span><br>
+       <span class="venue">{{event.venueName}}</span><br>
+       <span class="city">{{event.venueAddress}}</span>
+     </div>
+     <a [routerLink]="['/event/'+event.key]" href="" class="btn btn-primary">Details</a>
+   </li>
+ </ul>
+
+ <ng-template #noEvents>
+  <hr>
+  <h5>There are no Events coming up</h5>
+ </ng-template>
+ </div>
+ 
+ 
+ <div class="fixed-media-player">
+  <div class="audio-player transition"  [ngClass]= "{'page-scroll-header': isScrolled}">
+    
+     <div class="container-fluid" style="padding: 0;height: 50px;">
+        <!-- <div class="row">
+     <div class="audio-wrapper" id="player-container" href="javascript:;">
+       <audio id="player" ontimeupdate="initProgressBar()">
+         <source src="assets/music/DJ_Dynamiq_2016_Recap.mp3" type="audio/mp3">
+       </audio>
+     </div>
+     <div class="player-controls scrubber">
+       <p class="titletrack">DYNAMIQ</p>
+       <p class="album-title">Finally Moving Mix</p>
+ 
+       <span id="seekObjContainer">
+         <progress id="seekObj" value="0" max="1"></progress>
+       </span>
+       <br>
+       <small style="float: left; position: relative; left: 15px;" class="start-time"></small>
+       <small style="float: right; position: relative; right: 20px;" class="end-time"></small>
+ 
+     </div>
+     <div id="play-btn"></div>
+ 
+   </div> -->
+
+
+   <div class="videoplayer">         
+    
+    <vg-player style="height: 50px;">
+        <vg-controls>
+            <vg-play-pause [vgFor]="myAudio"></vg-play-pause>
+            <vg-playback-button></vg-playback-button>
+    
+            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+    
+            <vg-scrub-bar>
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+    
+            <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+    
+            <vg-mute></vg-mute>
+    
+            <vg-fullscreen></vg-fullscreen>
+        </vg-controls>
+    
+        <audio #media [vgMedia]="media" id="myAudio" preload="auto">
+            <source *ngFor="let audio of sources" [src]="audio.src" [type]="audio.type">
+        </audio>
+    </vg-player>
+        
+    </div>
+    <!--END AUDIO-->
+
+  </div>
+   </div>
+</div>
+ 
+ 

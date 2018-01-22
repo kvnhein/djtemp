@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-md navbar-dark d-none  mb-4 fixed-top" style="z-index:2;">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/">Home</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf= "!isLoggedIn && showRegister" class="nav-item">
+        <a class="nav-link" href="#" routerLink="/register">Register</a>
+      </li>
+      <li *ngIf= "!isLoggedIn && showRegister" class="nav-item">
+        <a class="nav-link" href="#" routerLink="/login">Login</a>
+      </li>
+
+      <li *ngIf= "isLoggedIn" class="nav-item">
+        <a class="nav-link" href="#">{{loggedInUser}}</a>
+      </li>
+
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a class="nav-link" href="#"  routerLink="/settings">Settings</a>
+      </li>
+
+      <li *ngIf= "isLoggedIn" class="nav-item">
+        <a class="nav-link" href="#" (click)="onLogoutClick()">Logout</a>
+      </li>
+    </ul>
+   
+  </div>
+</nav>
+
+
+
+  <div class="btn-group" style="z-index: 2;
+                                float: right;
+                                position: fixed;
+                                top: 15px;
+                                right: 15px;">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" *ngIf= "isLoggedIn" href="#">{{loggedInUser}}</a>
+        <a class="dropdown-item" *ngIf= "!isLoggedIn && showRegister" href="#" routerLink="/register">Register</a>
+        <a class="dropdown-item" *ngIf= "!isLoggedIn" href="#" routerLink="/login">Login</a>
+        <a class="dropdown-item" *ngIf= "isLoggedIn" href="#"  routerLink="/settings">Settings</a>
+        <a class="dropdown-item" *ngIf= "isLoggedIn" href="#" (click)="onLogoutClick()">Logout</a>
+      </div>
+    </div>
