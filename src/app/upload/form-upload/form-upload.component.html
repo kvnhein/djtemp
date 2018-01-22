@@ -11,4 +11,16 @@
 </label>
 
 <button class="btn btn-success" [disabled]="!selectedFiles"
-	(click)="upload()">Upload butt</button>
+  (click)="upload()">Upload butt</button>
+  
+
+  <div *ngFor="let upload of uploads | async">
+    <img src="{{upload.url}}" alt="">
+    <img [src]="" alt="">
+
+  </div>
+  
+  <!-- <div *ngFor="let upload of uploads | async">
+      <upload-detail [upload]='upload'></upload-detail>
+    </div>
+     -->

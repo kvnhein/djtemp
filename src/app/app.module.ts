@@ -67,7 +67,7 @@ AngularFireModule.initializeApp(environment.firebase)
     RegisterComponent,
     SettingsComponent,
     PageNotFoundComponent,
-    FormUploadComponent
+    FormUploadComponent,
   ],
   imports: [
     BrowserModule,

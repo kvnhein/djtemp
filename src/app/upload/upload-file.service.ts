@@ -1,15 +1,31 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
+
 import * as firebase from 'firebase';
 
 import {FileUpload} from './fileupload';
+import { Observable } from 'rxjs/Observable';
+
 
 @Injectable()
 export class UploadFileService {
+  
+  uploads: Observable<FileUpload[]>;
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) {  }
 
   private basePath = '/uploads';
+
+  getUploads() {
+    this.uploads = this.db.list(this.basePath).snapshotChanges().map((actions) => {
+      return actions.map((a) => {
+        const data = a.payload.val();
+        const $key = a.payload.key;
+        return { $key, ...data };
+      });
+    });
+    return this.uploads;
+  }
 
   pushFileToStorage(fileUpload: FileUpload, progress: {percentage: number}) {
     const storageRef = firebase.storage().ref();
